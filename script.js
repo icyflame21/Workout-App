@@ -62,12 +62,7 @@ class Cycling extends Workout {
   }
 }
 
-// const run1 = new Running([39, -12], 5.2, 24, 178);
-// const cycling1 = new Cycling([39, -12], 27, 95, 523);
-// console.log(run1, cycling1);
 
-///////////////////////////////////////
-// APPLICATION ARCHITECTURE
 const form = document.querySelector('.form');
 const containerWorkouts = document.querySelector('.workouts');
 const inputType = document.querySelector('.form__input--type');
@@ -108,7 +103,6 @@ class App {
   _loadMap(position) {
     const { latitude } = position.coords;
     const { longitude } = position.coords;
-    // console.log(`https://www.google.pt/maps/@${latitude},${longitude}`);
 
     const coords = [latitude, longitude];
 
@@ -227,8 +221,10 @@ class App {
   }
 
   _renderWorkout(workout) {
-    let html = `
+      let html = `
+      
       <li class="workout workout--${workout.type}" data-id="${workout.id}">
+      
         <h2 class="workout__title">${workout.description}</h2>
         <div class="workout__details">
           <span class="workout__icon">${
@@ -241,7 +237,9 @@ class App {
           <span class="workout__icon">⏱</span>
           <span class="workout__value">${workout.duration}</span>
           <span class="workout__unit">min</span>
+          
         </div>
+        
     `;
 
     if (workout.type === 'running')
